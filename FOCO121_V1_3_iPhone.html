@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FOCO 121 V1.3</title>
+<style>
+body{font-family:Arial,sans-serif;padding:12px;max-width:800px;margin:auto;background:#f4f4f4}
+.card{background:white;border:1px solid #ddd;border-radius:10px;padding:10px;margin:8px 0}
+input,select,textarea{width:100%;padding:10px;box-sizing:border-box;margin-top:4px}
+.rojo{background:#ffd6d6}
+.amarillo{background:#fff4bf}
+.verde{background:#d9ffd9}
+.resumen{display:flex;gap:8px;flex-wrap:wrap}
+.badge{background:white;border:1px solid #ddd;border-radius:8px;padding:8px}
+button{padding:10px 14px;margin:4px}
+</style>
+<script>
+function actualizar(el){
+ let v=parseFloat(el.value||0);
+ let card=el.parentElement;
+ card.classList.remove('rojo','amarillo','verde');
+ if(v<=60) card.classList.add('rojo');
+ else if(v<80) card.classList.add('amarillo');
+ else card.classList.add('verde');
+
+ let r=0,a=0,g=0;
+ document.querySelectorAll('.cat').forEach(c=>{
+   if(c.classList.contains('rojo')) r++;
+   else if(c.classList.contains('amarillo')) a++;
+   else if(c.classList.contains('verde')) g++;
+ });
+ document.getElementById('r').textContent=r;
+ document.getElementById('a').textContent=a;
+ document.getElementById('g').textContent=g;
+}
+</script>
+</head>
+<body>
+<h2>📊 Categorías FOCO 121 V1.3</h2>
+
+<div class="card">
+<label>👤 Nombre</label>
+<input placeholder="Ingresa tu nombre">
+<label>🕒 Turno</label>
+<select><option>AM</option><option>PM</option></select>
+<label>🎯 Meta (%)</label>
+<input type="number" value="80">
+</div>
+
+<div class="resumen">
+<div class="badge">🟢 <span id="g">0</span></div>
+<div class="badge">🟡 <span id="a">0</span></div>
+<div class="badge">🔴 <span id="r">11</span></div>
+</div>
+
+
+    <div class="card cat rojo">
+      <label>82 - Check-Out</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+    <div class="card cat rojo">
+      <label>08 - Mascota</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+    <div class="card cat rojo">
+      <label>92 - Bebidas-Café</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+    <div class="card cat rojo">
+      <label>14 - Depto 14</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+    <div class="card cat rojo">
+      <label>10 - Depto 10</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+    <div class="card cat rojo">
+      <label>20 - Depto 20</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+    <div class="card cat rojo">
+      <label>09 - Depto 09</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+    <div class="card cat rojo">
+      <label>15 - Depto 15</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+    <div class="card cat rojo">
+      <label>53 - Depto 53</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+    <div class="card cat rojo">
+      <label>22 - Depto 22</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+    <div class="card cat rojo">
+      <label>87 - Depto 87</label>
+      <input type="number" step="0.1" min="0" max="100" oninput="actualizar(this)">
+    </div>
+    
+
+<div class="card">
+<label>📝 Observaciones</label>
+<textarea rows="4"></textarea>
+</div>
+
+<button>💾 Guardar</button>
+<button>📤 WhatsApp</button>
+
+<div class="card">
+<b>📚 Historial</b><br>
+Próxima etapa.
+</div>
+
+</body>
+</html>
